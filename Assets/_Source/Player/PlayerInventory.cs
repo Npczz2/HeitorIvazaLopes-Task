@@ -13,7 +13,7 @@ public class PlayerInventory : MonoBehaviour
     public QuantifiedItem[] Items {get; private set;}
 
     [HideInInspector]
-    public int SelectedItemIndex;
+    public int SelectedItemIndex = -1;
 
     private float _dropRange = 0.5f;
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DraggableObject : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DraggableObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("External Scripts")]
     [SerializeField] private Canvas _canvas;
@@ -50,8 +50,13 @@ public class DraggableObject : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         transform.localPosition = _basePos;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        
+        _interfaceManager.ActivateHover(SlotIndex);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _interfaceManager.DeactivateHover();
     }
 }

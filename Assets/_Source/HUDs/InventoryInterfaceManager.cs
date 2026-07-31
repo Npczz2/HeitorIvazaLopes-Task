@@ -11,13 +11,18 @@ public class InventoryInterfaceManager : MonoBehaviour
     [SerializeField] private GameObject _inventoryInterface;
     [SerializeField] private Transform _itemSlotPool;
     [SerializeField] private GameObject _selectionSquare;
+    [SerializeField] private Button _useItemButton;
+    [SerializeField] private Button _dropItemButton;
 
+    [Header("Selected item interface")]
     [SerializeField] private Image _selectedItemSprite;
     [SerializeField] private TMP_Text _selectedItemName;
     [SerializeField] private TMP_Text _selectedItemDescription;
 
-    [SerializeField] private Button _useItemButton;
-    [SerializeField] private Button _dropItemButton;
+    [Header("Hover interface")]
+    [SerializeField] private GameObject _itemHover;
+    [SerializeField] private TMP_Text _hoverItemName;
+    [SerializeField] private TMP_Text _hoverItemDescription;
 
     [Header("Other")]
     [SerializeField] private Sprite _sprNull;
@@ -100,5 +105,23 @@ public class InventoryInterfaceManager : MonoBehaviour
     public void DragItem(Transform draggedItem) //Used to increase the rendering order of the dragged item
     {
         draggedItem.parent = _draggedItemParent;
+    }
+
+    //------------------------------------------------------------------
+
+    public void ActivateHover(int slotIndex)
+    {
+        if(_playerInventory.Items[slotIndex] == null || _playerInventory.SelectedItemIndex == slotIndex) return;
+
+        _itemHover.SetActive(true);
+        _itemHover.transform.localPosition = (_itemSlotPool.GetChild(slotIndex).localPosition + new Vector3(0f, 150f, 0f));
+
+        _hoverItemName.text = _playerInventory.Items[slotIndex].Item.ItemName;
+        _hoverItemDescription.text = _playerInventory.Items[slotIndex].Item.ItemDescription;
+    }
+
+    public void DeactivateHover()
+    {
+        _itemHover.SetActive(false);
     }
 }
