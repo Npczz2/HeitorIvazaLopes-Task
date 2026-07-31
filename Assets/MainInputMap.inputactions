@@ -23,6 +23,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenInventory",
+                    "type": "Button",
+                    "id": "2d1b8b9c-a3bd-4ec4-ac80-a9e95aa73fe4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -91,6 +100,17 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f8b5b862-7fd8-4eac-b483-6e1e9c8e5af3",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -99,7 +119,7 @@
             "id": "2d06c61c-496a-47bb-b378-6d7479fa69c2",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "CloseInventory",
                     "type": "Button",
                     "id": "2abccf03-ea91-4bd9-9396-c311cb1f13f1",
                     "expectedControlType": "",
@@ -112,11 +132,11 @@
                 {
                     "name": "",
                     "id": "6294955b-38db-4d38-8057-078d49d035b5",
-                    "path": "",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "CloseInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
