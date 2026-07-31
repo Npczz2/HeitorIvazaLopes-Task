@@ -6,7 +6,16 @@ public class PlayerInventory : MonoBehaviour
     [Header("External scripts")]
     [SerializeField] private InventoryInterfaceManager _interfaceManager;
     [SerializeField] private PlayerInput _playerInput;
+
+    [Header("Other")]
+    [SerializeField] private GameObject _defaultItemPrefab;
+
     public QuantifiedItem[] Items {get; private set;}
+
+    [HideInInspector]
+    public int SelectedItemIndex;
+
+    private float _dropRange = 0.5f;
 
     void Awake()
     {
@@ -33,6 +42,41 @@ public class PlayerInventory : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void DropSelectedItem()
+    {
+        if(Items[SelectedItemIndex] == null) return;
+
+        GameObject itemToDrop = _defaultItemPrefab;
+        itemToDrop.GetComponent<SpriteRenderer>().sprite = Items[SelectedItemIndex].Item.ItemSprite;
+        itemToDrop.GetComponent<DroppedItem>().ReferenceItem = Items[SelectedItemIndex].Item;
+
+        Instantiate(itemToDrop, transform.position + new Vector3(0, 0, -_dropRange), Quaternion.identity);
+
+        Items[SelectedItemIndex].ItemQuantity--;
+
+        if(Items[SelectedItemIndex].ItemQuantity <= 0)
+        {
+            Items[SelectedItemIndex] = null;
+            _interfaceManager.UnselectItems();
+        }
+
+        _interfaceManager.RenderInventory();
+    }
+
+    //------------------------------------------------------------------
+
+    public void SwapInventorySlots(int fromSlotIndex, int toSlotIndex)
+    {
+        if(Items[fromSlotIndex] == null || fromSlotIndex == toSlotIndex) return;
+
+        QuantifiedItem swappedItem = Items[toSlotIndex];
+        Items[toSlotIndex] = Items[fromSlotIndex];
+        Items[fromSlotIndex] = swappedItem;
+
+        _interfaceManager.UnselectItems();
+        _interfaceManager.RenderInventory();
     }
 
     //------------------------------------------------------------------

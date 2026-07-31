@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DroppedItem : MonoBehaviour, IInteractable
 {
-    [SerializeField] private ItemScriptableObject _referenceItem;
+    public ItemScriptableObject ReferenceItem;
     private PlayerInventory _playerInventory;
 
     void Awake()
@@ -12,7 +12,7 @@ public class DroppedItem : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        _playerInventory.AddItem(_referenceItem);
+        _playerInventory.AddItem(ReferenceItem);
         Destroy(gameObject); //Replace with collect item logic
     }
 }
