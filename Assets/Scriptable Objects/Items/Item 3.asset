@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Item 3
   m_EditorClassIdentifier: Assembly-CSharp::ItemScriptableObject
   ItemID: 2
-  ItemName: Item 3
-  ItemDescription: This is a default description.
-  ItemSprite: {fileID: 21300000, guid: 14535b5848c32944ca1061225b3fe6aa, type: 3}
-  ItemPrice: 100
+  ItemName: Blessed Ring
+  ItemDescription: A ring blessed by the heavens. No wizard has ever been able to
+    replicate the magic within it.
+  ItemSprite: {fileID: 21300000, guid: f0e1c73c4f89bbd4d97f8a347c5c69e8, type: 3}
+  ItemPrice: 125
