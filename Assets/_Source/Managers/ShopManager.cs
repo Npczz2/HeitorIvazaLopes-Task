@@ -67,7 +67,7 @@ public class ShopManager : MonoBehaviour
 
         for(int i = 0; i < _selectedItemsIndex.Count; i++)
         {
-            totalGold += _playerInventory.Items[_selectedItemsIndex[i]].Item.ItemPrice;
+            totalGold += _playerInventory.Items[_selectedItemsIndex[i]].Item.ItemPrice * _playerInventory.Items[_selectedItemsIndex[i]].ItemQuantity;
         }
 
         return totalGold;

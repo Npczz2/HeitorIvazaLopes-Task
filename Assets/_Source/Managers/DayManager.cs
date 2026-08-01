@@ -35,6 +35,7 @@ public class DayManager : MonoBehaviour
         
         CalculateDailyQuota();
         _dayInterfaceManager.RenderDayCount(PlayerScenePersistentData.Instance.Day, false);
+        _dayInterfaceManager.SetObjective(false);
 
         _dayInterfaceManager.ActivateEndNightButton(false);
         EnableNightObjects(false);
@@ -67,6 +68,7 @@ public class DayManager : MonoBehaviour
     {
         CalculateDailyQuota();
         _dayInterfaceManager.RenderDayCount(PlayerScenePersistentData.Instance.Day, true);
+        _dayInterfaceManager.SetObjective(true);
 
         _dayInterfaceManager.ActivateEndNightButton(true);
         EnableNightObjects(true);
