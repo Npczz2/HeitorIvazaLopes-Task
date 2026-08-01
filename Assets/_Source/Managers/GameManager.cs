@@ -14,8 +14,9 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        PlayerDataManager.Instance.ClearSavedData();
-        SceneManager.LoadScene("City");
         Time.timeScale = 1f;
+        PlayerDataManager.Instance.ClearSavedData();
+
+        SceneManager.LoadScene("City");
     }
 }

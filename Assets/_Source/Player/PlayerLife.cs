@@ -27,7 +27,7 @@ public class PlayerLife : MonoBehaviour
 
     //------------------------------------------------------------------
 
-    void TakeDamage()
+    public void TakeDamage()
     {
         _life--;
         _hit = true;

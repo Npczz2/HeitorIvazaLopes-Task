@@ -2,13 +2,21 @@ using UnityEngine;
 
 public class PlayerScenePersistentData : MonoBehaviour
 {
+    public static PlayerScenePersistentData Instance;
     public QuantifiedItem[] StoredItems {get; private set;}
 
     void Awake()
     {
-        StoredItems = new QuantifiedItem[20];
+        if(Instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
 
-        DontDestroyOnLoad(this.gameObject);    
+        PlayerScenePersistentData.Instance = this;
+        DontDestroyOnLoad(this.gameObject);
+
+        StoredItems = new QuantifiedItem[20];
     }
 
     public void StoreItems(QuantifiedItem[] items)
