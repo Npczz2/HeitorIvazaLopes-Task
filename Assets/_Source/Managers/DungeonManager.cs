@@ -4,14 +4,9 @@ public class DungeonManager : MonoBehaviour
 {
     [Header("External scripts")]
     [SerializeField] private DungeonInterfaceManager _dungeonInterfaceManager;
-    private GameManager _gameManager;
+    [SerializeField] private GameManager _gameManager;
 
     private float _dungeonTimer = 120;
-
-    void Awake()
-    {
-        _gameManager = GetComponent<GameManager>();
-    }
 
     void Update()
     {

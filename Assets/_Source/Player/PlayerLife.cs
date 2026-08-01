@@ -60,6 +60,14 @@ public class PlayerLife : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+        if(col.gameObject.CompareTag("Floor Trap"))
+        {
+            if(!_hit) TakeDamage();
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
         if(col.gameObject.CompareTag("Enemy"))
         {
             if(!_hit) TakeDamage();
