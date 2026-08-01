@@ -28,6 +28,8 @@ public class DialogManager : MonoBehaviour
     void EndDialog()
     {
         _dialogInterfaceManager.EndDialogInterface();
+        _currentDialog = null;
+
         _playerInput.SwitchCurrentActionMap("Player");
     }
 
@@ -50,6 +52,6 @@ public class DialogManager : MonoBehaviour
 
     public void GetPassLineInput(InputAction.CallbackContext context)
     {
-        if(context.performed) PassDialogLine();
+        if(context.performed && _currentDialog != null) PassDialogLine();
     }
 }

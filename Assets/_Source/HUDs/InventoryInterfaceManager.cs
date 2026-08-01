@@ -104,7 +104,7 @@ public class InventoryInterfaceManager : MonoBehaviour
 
     public void DragItem(Transform draggedItem) //Used to increase the rendering order of the dragged item
     {
-        draggedItem.parent = _draggedItemParent;
+        draggedItem.SetParent(_draggedItemParent);
     }
 
     //------------------------------------------------------------------

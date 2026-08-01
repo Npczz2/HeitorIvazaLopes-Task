@@ -81,6 +81,14 @@ public class PlayerInventory : MonoBehaviour
 
     //------------------------------------------------------------------
 
+    public void LoadSavedItems(QuantifiedItem[] items)
+    {
+        Items = items;
+        Debug.Log("Items loaded.");
+    }
+
+    //------------------------------------------------------------------
+
     public void GetOpenInventoryInput(InputAction.CallbackContext context)
     {
         if(context.performed)

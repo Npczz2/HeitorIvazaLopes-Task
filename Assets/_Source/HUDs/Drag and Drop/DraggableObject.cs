@@ -44,7 +44,7 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IEndDragHandler
         _canvasGroup.alpha = 1f;
         _canvasGroup.blocksRaycasts = true;
 
-        transform.parent = _baseParent;
+        transform.SetParent(_baseParent);
         transform.SetAsFirstSibling();
 
         transform.localPosition = _basePos;
