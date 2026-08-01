@@ -12,7 +12,7 @@ public class PlayerLife : MonoBehaviour
     private int _maxLife = 3;
 
     private bool _hit = false;
-    private float _invulnerabilityTimer = 0.5f;
+    private float _invulnerabilityTimer = 0.75f;
 
     void Awake()
     {
@@ -58,15 +58,7 @@ public class PlayerLife : MonoBehaviour
 
     //------------------------------------------------------------------
 
-    void OnCollisionEnter(Collision col)
-    {
-        if(col.gameObject.CompareTag("Floor Trap"))
-        {
-            if(!_hit) TakeDamage();
-        }
-    }
-
-    void OnTriggerEnter(Collider col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Enemy"))
         {
