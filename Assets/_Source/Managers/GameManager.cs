@@ -6,13 +6,6 @@ public class GameManager : MonoBehaviour
     [Header("Interface")]
     [SerializeField] private GameObject _gameOverInterface;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    //------------------------------------------------------------------
-
     public void GameOver()
     {
         Time.timeScale = 0f;

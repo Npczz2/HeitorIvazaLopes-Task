@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using System.Collections;
 
 public class PlayerDataManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] private ItemListHolder _itemListHolder;
 
     public static PlayerDataManager Instance;
+    public bool SaveLoaded {get; private set;} = false;
 
     void Awake()
     {
@@ -51,8 +53,13 @@ public class PlayerDataManager : MonoBehaviour
             string json = System.IO.File.ReadAllText(path);
             PlayerData loadedData = JsonUtility.FromJson<PlayerData>(json);
 
-            if(loadedData.PlayerItems != null) _playerInventory.LoadSavedItems(ConvertLoadedData(loadedData.PlayerItems));
+            if(loadedData.PlayerItems != null)
+            {
+                StartCoroutine(LoadSaveCorroutine(loadedData));
+            } 
+            else SaveLoaded = true;
         }
+        else SaveLoaded = true;
     }
 
     public void ClearSavedData()
@@ -98,5 +105,14 @@ public class PlayerDataManager : MonoBehaviour
         }
 
         return convertedItems;
+    }
+
+    //------------------------------------------------------------------
+
+    IEnumerator LoadSaveCorroutine(PlayerData loadedData) //Avoid items being overwritten by scene persistent load
+    {
+        _playerInventory.LoadSavedItems(ConvertLoadedData(loadedData.PlayerItems));
+        yield return null;
+        SaveLoaded = true;
     }
 }

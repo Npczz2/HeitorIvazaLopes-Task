@@ -44,7 +44,7 @@ public class PlayerInteraction : MonoBehaviour
 
         foreach (var hitCollider in hitColliders)
         {
-            if(hitCollider.transform.gameObject.CompareTag("Item") || hitCollider.transform.gameObject.CompareTag("NPC"))
+            if(hitCollider.transform.gameObject.CompareTag("Item") || hitCollider.transform.gameObject.CompareTag("NPC") || hitCollider.transform.gameObject.CompareTag("Dungeon Door"))
             {
                 _collidingObject = hitCollider.transform.gameObject;
                 EnableOrDisableInteractionUI(true);

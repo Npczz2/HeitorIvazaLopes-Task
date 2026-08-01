@@ -6,6 +6,7 @@ public class PlayerInventory : MonoBehaviour
     [Header("External scripts")]
     [SerializeField] private InventoryInterfaceManager _interfaceManager;
     [SerializeField] private PlayerInput _playerInput;
+    private PlayerScenePersistentData _playerPersistentData;
 
     [Header("Other")]
     [SerializeField] private GameObject _defaultItemPrefab;
@@ -20,6 +21,12 @@ public class PlayerInventory : MonoBehaviour
     void Awake()
     {
         Items = new QuantifiedItem[20];
+        _playerPersistentData = FindFirstObjectByType<PlayerScenePersistentData>();
+    }
+
+    void Start()
+    {
+        if(PlayerDataManager.Instance.SaveLoaded) Items = _playerPersistentData.StoredItems;
     }
 
     //------------------------------------------------------------------
@@ -92,6 +99,11 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //------------------------------------------------------------------
+
+    public void StoreSceneItems()
+    {
+        _playerPersistentData.StoreItems(Items);
+    }
 
     public void LoadSavedItems(QuantifiedItem[] items)
     {
