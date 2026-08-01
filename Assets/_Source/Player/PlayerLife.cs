@@ -9,10 +9,10 @@ public class PlayerLife : MonoBehaviour
     private SpriteRenderer _spriteRender;
 
     private int _life;
-    private int _maxLife = 3;
+    private int _maxLife = 5;
 
     private bool _hit = false;
-    private float _invulnerabilityTimer = 0.75f;
+    private float _invulnerabilityTimer = 1f;
 
     void Awake()
     {

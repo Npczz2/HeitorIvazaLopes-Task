@@ -7,10 +7,10 @@ public class ChaseAttackEnemy : MonoBehaviour
     private Rigidbody2D _rb;
 
     private Vector2 _moveDir;
-    private float _moveSpd = 2f;
+    private float _moveSpd = 1.2f;
 
-    private float _getPositionTimer = 1f;
-    private int _chancesToHit = 5;
+    private float _getPositionTimer = 1.25f;
+    private int _chancesToHit = 4;
 
     void Awake()
     {
@@ -39,7 +39,6 @@ public class ChaseAttackEnemy : MonoBehaviour
 
     void SetMoveDir()
     {
-        Debug.Log("Pegou a posição");
         _moveDir = (_playerTransform.position - transform.position).normalized;
     }
 

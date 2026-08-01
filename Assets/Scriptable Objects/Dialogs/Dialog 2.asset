@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogScriptableObject
   DialogID: 0
   DialogLines:
-  - CharacterName: Gabriela
-    Line: It's dangerous to go to the dungeons at night...
-  - CharacterName: Gabriela
-    Line: Sell your items at the shop and take a good nap.
+  - CharacterName: Eldrin
+    Line: It's not safe to explore the dungeons at night...
+  - CharacterName: Eldrin
+    Line: Give the belongigs to the shop owner.
+  - CharacterName: Eldrin
+    Line: He'll reward you and give you some place to rest for the night.

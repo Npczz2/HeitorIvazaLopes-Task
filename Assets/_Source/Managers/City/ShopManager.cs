@@ -56,7 +56,7 @@ public class ShopManager : MonoBehaviour
         _playerInterfaceManager.RenderGold();
 
         _shopInterfaceManager.RenderInventory();
-        _shopInterfaceManager.ClearAllSelections();
+        ClearSelectedItems();
     }
 
     //------------------------------------------------------------------

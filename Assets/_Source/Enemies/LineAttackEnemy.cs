@@ -4,7 +4,7 @@ public class LineAttackEnemy : MonoBehaviour
 {
     private Rigidbody2D _rb;
 
-    private float _moveSpd = 2f;
+    private float _moveSpd = 1.5f;
     private Vector2 _moveDir;
 
     private enum TargetDirection {Left, Right, Up, Down}
