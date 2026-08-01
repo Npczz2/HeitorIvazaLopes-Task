@@ -26,6 +26,21 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(ItemScriptableObject newItem)
     {
+        if(!CheckItemExistence(newItem))
+        {
+            for(int i = 0; i < Items.Length; i++)
+            {
+                if(Items[i] == null)
+                {
+                    Items[i] = new QuantifiedItem(newItem, 1);
+                    break;
+                }
+            }
+        }
+    }
+
+    bool CheckItemExistence(ItemScriptableObject newItem)
+    {
         for(int i = 0; i < Items.Length; i++)
         {
             if(Items[i] != null)
@@ -33,15 +48,12 @@ public class PlayerInventory : MonoBehaviour
                 if(Items[i].Item.ItemID == newItem.ItemID)
                 {
                     Items[i].ItemQuantity++;
-                    break;
+                    return true;
                 }
             }
-            else
-            {
-                Items[i] = new QuantifiedItem(newItem, 1);
-                break;
-            }
         }
+
+        return false;
     }
 
     public void DropSelectedItem()
