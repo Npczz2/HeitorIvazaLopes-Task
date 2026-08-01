@@ -44,7 +44,7 @@ public class PlayerInteraction : MonoBehaviour
 
         foreach (var hitCollider in hitColliders)
         {
-            if(hitCollider.transform.gameObject.CompareTag("Item") || hitCollider.transform.gameObject.CompareTag("NPC") || hitCollider.transform.gameObject.CompareTag("Dungeon Door"))
+            if(IsObjectInteractable(hitCollider.transform.gameObject))
             {
                 _collidingObject = hitCollider.transform.gameObject;
                 EnableOrDisableInteractionUI(true);
@@ -54,6 +54,14 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         if(!anyCollision) EnableOrDisableInteractionUI(false);
+    }
+
+    bool IsObjectInteractable(GameObject gameObject)
+    {
+        if(gameObject.CompareTag("Item") || gameObject.CompareTag("NPC") || gameObject.CompareTag("Dungeon Door") || gameObject.CompareTag("Shop Door"))
+        {
+            return true;
+        } else return false;
     }
 
     void EnableOrDisableInteractionUI(bool enable)
