@@ -13,6 +13,11 @@ public class ShopInterfaceManager : MonoBehaviour
     [SerializeField] private Transform _itemSelectionPool;
     [SerializeField] private TMP_Text _totalPrice;
 
+    [Header("Hover interface")]
+    [SerializeField] private GameObject _itemHover;
+    [SerializeField] private TMP_Text _hoverItemName;
+    [SerializeField] private TMP_Text _hoverItemDescription;
+
     [Header("Other")]
     [SerializeField] private Sprite _sprNull;
 
@@ -65,6 +70,24 @@ public class ShopInterfaceManager : MonoBehaviour
 
     public void RenderTotalPrice(int amount)
     {
-        _totalPrice.text = "Total price: " + amount;
+        _totalPrice.text = "Total price: $" + amount;
+    }
+
+    //------------------------------------------------------------------
+
+    public void ActivateHover(int slotIndex)
+    {
+        if(_playerInventory.Items[slotIndex] == null) return;
+
+        _itemHover.SetActive(true);
+        _itemHover.transform.localPosition = (_itemSlotPool.GetChild(slotIndex).localPosition + new Vector3(0f, 150f, 0f));
+
+        _hoverItemName.text = _playerInventory.Items[slotIndex].Item.ItemName + " ($" + _playerInventory.Items[slotIndex].Item.ItemPrice + ")";
+        _hoverItemDescription.text = _playerInventory.Items[slotIndex].Item.ItemDescription;
+    }
+
+    public void DeactivateHover()
+    {
+        _itemHover.SetActive(false);
     }
 }

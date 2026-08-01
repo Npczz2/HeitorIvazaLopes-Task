@@ -8,6 +8,7 @@ public class PlayerDataManager : MonoBehaviour
     [Header("External scripts")]
     [SerializeField] private PlayerInventory _playerInventory;
     [SerializeField] private ItemListHolder _itemListHolder;
+    [SerializeField] private PlayerInterfaceManager _playerInterfaceManager;
 
     public static PlayerDataManager Instance;
     public bool SaveLoaded {get; private set;} = false;
@@ -37,6 +38,7 @@ public class PlayerDataManager : MonoBehaviour
 
         PlayerData playerData = new PlayerData();
         playerData.PlayerItems = convertedPlayerItems;
+        playerData.PlayerGold = PlayerScenePersistentData.Instance.Gold;
 
         string json = JsonUtility.ToJson(playerData);
         string path = Application.persistentDataPath + "/playerData.json";
@@ -52,6 +54,9 @@ public class PlayerDataManager : MonoBehaviour
         {
             string json = System.IO.File.ReadAllText(path);
             PlayerData loadedData = JsonUtility.FromJson<PlayerData>(json);
+
+            PlayerScenePersistentData.Instance.SetGold(loadedData.PlayerGold);
+            _playerInterfaceManager.RenderGold();
 
             if(loadedData.PlayerItems != null)
             {

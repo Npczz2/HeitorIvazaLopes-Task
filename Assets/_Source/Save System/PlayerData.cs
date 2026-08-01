@@ -3,6 +3,7 @@ using System.Collections.Generic;
 public class PlayerData
 {
     public List<QuantifiedItemSaveData> PlayerItems;
+    public int PlayerGold;
 }
 
 //------------------------------------------------------------------

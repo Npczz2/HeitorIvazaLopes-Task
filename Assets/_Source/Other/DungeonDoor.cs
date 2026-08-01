@@ -11,6 +11,15 @@ public class DungeonDoor : MonoBehaviour, IInteractable
     public void Interact()
     {
         _playerInventory.StoreSceneItems();
-        SceneManager.LoadScene(_enterDungeon ? "Dungeon" : "City");
+
+        if(_enterDungeon)
+        {
+            SceneManager.LoadScene("Dungeon");
+        }
+        else
+        {
+            PlayerScenePersistentData.Instance.IsDayTime = false;
+            SceneManager.LoadScene("City");
+        }
     }
 }

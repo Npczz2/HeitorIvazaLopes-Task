@@ -22,6 +22,6 @@ public class PlayerInterfaceManager : MonoBehaviour
 
     public void RenderGold()
     {
-        _playerGold.text = "Gold: " + PlayerScenePersistentData.Instance.Gold.ToString();
+        _playerGold.text = "Gold: $" + PlayerScenePersistentData.Instance.Gold.ToString();
     }
 }

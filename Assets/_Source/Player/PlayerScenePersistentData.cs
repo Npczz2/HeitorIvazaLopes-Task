@@ -6,6 +6,9 @@ public class PlayerScenePersistentData : MonoBehaviour
     public QuantifiedItem[] StoredItems {get; private set;}
     public int Gold {get; private set;} = 0;
 
+    public bool IsDayTime = true;
+    public int Day = 1;
+
     void Awake()
     {
         if(Instance != null)
@@ -43,5 +46,10 @@ public class PlayerScenePersistentData : MonoBehaviour
     public void AddGold(int amount)
     {
         Gold += amount;
+    }
+
+    public void SetGold(int gold)
+    {
+        Gold = gold;
     }
 }

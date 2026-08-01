@@ -111,6 +111,14 @@ public class PlayerInventory : MonoBehaviour
 
     //------------------------------------------------------------------
 
+    public void CloseInventory()
+    {
+        _interfaceManager.CloseInventory();
+        _playerInput.SwitchCurrentActionMap("Player");
+    }
+
+    //------------------------------------------------------------------
+
     public void GetOpenInventoryInput(InputAction.CallbackContext context)
     {
         if(context.performed)
@@ -124,8 +132,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if(context.performed)
         {
-            _interfaceManager.CloseInventory();
-            _playerInput.SwitchCurrentActionMap("Player");
+            CloseInventory();
         } 
     }
 }
