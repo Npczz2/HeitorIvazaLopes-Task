@@ -11,7 +11,7 @@ public class DayManager : MonoBehaviour
     [Header("Night Objects")]
     [SerializeField] private List<GameObject> _nightObjectList = new List<GameObject>();
 
-    private const int _baseQuota = 10;// Base 200
+    private const int _baseQuota = 200;
     private int _dailyQuota;
 
     void Start()
