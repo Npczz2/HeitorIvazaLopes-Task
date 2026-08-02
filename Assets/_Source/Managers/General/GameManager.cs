@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         PlayerDataManager.Instance.ClearSavedData();
-        PlayerScenePersistentData.Instance.ClearStoredItems();
+
+        ResetStats();
 
         SceneManager.LoadScene("City");
     }
@@ -34,6 +35,14 @@ public class GameManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1f;
+        ResetStats();
         SceneManager.LoadScene("MainMenu");
+    }
+
+    void ResetStats()
+    {
+        PlayerScenePersistentData.Instance.ClearStoredItems();
+        PlayerScenePersistentData.Instance.SetGold(0);
+        PlayerScenePersistentData.Instance.Day = 1;
     }
 }

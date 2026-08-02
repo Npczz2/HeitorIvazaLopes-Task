@@ -43,8 +43,6 @@ public class PlayerDataManager : MonoBehaviour
         string json = JsonUtility.ToJson(playerData);
         string path = Application.persistentDataPath + "/playerData.json";
         System.IO.File.WriteAllText(path, json);
-
-        Debug.Log("Items saved.");
     }
 
     public void LoadGame()
@@ -71,8 +69,6 @@ public class PlayerDataManager : MonoBehaviour
     {
         string path = Application.persistentDataPath + "/playerData.json";
         File.Delete(path);
-
-        Debug.Log("Data cleared.");
     }
 
     //------------------------------------------------------------------

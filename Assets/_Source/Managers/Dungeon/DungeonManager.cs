@@ -7,7 +7,13 @@ public class DungeonManager : MonoBehaviour
     [Header("External scripts")]
     [SerializeField] private DungeonInterfaceManager _dungeonInterfaceManager;
     [SerializeField] private PlayerInventory _playerInventory;
+
+    [Header("Other")]
+    [SerializeField] private GameObject _dungeonInstructionObject;
+
     private ItemListHolder _itemListHolder;
+
+    public bool CombatStarted {get; private set;} = false;
 
     private float _dungeonTimer;
 
@@ -21,7 +27,7 @@ public class DungeonManager : MonoBehaviour
 
     void Update()
     {
-        CountDungeonTimer();
+        if(CombatStarted) CountDungeonTimer();
     }
 
     void CountDungeonTimer()
@@ -53,4 +59,22 @@ public class DungeonManager : MonoBehaviour
     {
         if(context.performed) ReturnToCity();
     }
+
+    //------------------------------------------------------------------
+
+    void StartCombat()
+    {
+        _dungeonInstructionObject.SetActive(false);
+        CombatStarted = true;
+    }
+
+    //------------------------------------------------------------------
+
+    public void GetCombatStartInput(InputAction.CallbackContext context)
+{
+    if(context.performed)
+    {
+        StartCombat();
+    }
+}
 }

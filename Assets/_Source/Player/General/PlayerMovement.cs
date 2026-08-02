@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     void IncreaseGravity()
     {
-        _rb.AddForce(Physics.gravity * (_gravityMultiplier - 1), ForceMode.Acceleration); //-1 represent the gravity itself
+        _rb.AddForce(Physics.gravity * (_gravityMultiplier - 1), ForceMode.Acceleration);
     }
 
     //------------------------------------------------------------------

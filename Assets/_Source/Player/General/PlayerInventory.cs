@@ -106,10 +106,17 @@ public class PlayerInventory : MonoBehaviour
     public void LoadSavedItems(QuantifiedItem[] items)
     {
         Items = items;
-        Debug.Log("Items loaded.");
     }
 
     //------------------------------------------------------------------
+
+    public void OpenInventory()
+    {
+        _interfaceManager.OpenInventory();
+        _playerInput.SwitchCurrentActionMap("UI");
+
+        AudioManager.Instance.PlayAudio(0);
+    }
 
     public void CloseInventory()
     {
@@ -123,10 +130,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if(context.performed)
         {
-            _interfaceManager.OpenInventory();
-            _playerInput.SwitchCurrentActionMap("UI");
-
-            AudioManager.Instance.PlayAudio(0);
+            OpenInventory();
         } 
     }
 

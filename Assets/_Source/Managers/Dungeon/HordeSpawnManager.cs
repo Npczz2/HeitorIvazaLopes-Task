@@ -6,17 +6,19 @@ public class HordeSpawnManager : MonoBehaviour
     [Header("Attack prefabs")]
     [SerializeField] private List<GameObject> _enemyAttackPrefabs;
 
+    private DungeonManager _dungeonManager;
+
     private float _spawnTimer;
     private float _spawnMaxTimer = 4f;
 
-    void Start()
+    void Awake()
     {
-        SpawnAttack();
+        _dungeonManager = GetComponent<DungeonManager>();
     }
 
     void Update()
     {
-        SpawnAttackCounter();
+        if(_dungeonManager.CombatStarted) SpawnAttackCounter();
     }
 
     //------------------------------------------------------------------
