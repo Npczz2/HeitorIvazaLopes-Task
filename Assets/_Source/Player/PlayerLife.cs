@@ -39,6 +39,8 @@ public class PlayerLife : MonoBehaviour
 
         _playerInterfaceManager.RenderLife(_life);
 
+        AudioManager.Instance.PlayAudio(2);
+
         StartCoroutine(InvulnerabilityCoroutine());
     }
 

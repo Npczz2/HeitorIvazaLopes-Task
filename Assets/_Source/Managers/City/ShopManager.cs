@@ -18,6 +18,8 @@ public class ShopManager : MonoBehaviour
         _playerInput.SwitchCurrentActionMap("UI");
 
         ClearSelectedItems();
+
+        AudioManager.Instance.PlayAudio(3);
     }
 
     public void CloseShop()
@@ -57,6 +59,8 @@ public class ShopManager : MonoBehaviour
 
         _shopInterfaceManager.RenderInventory();
         ClearSelectedItems();
+
+        AudioManager.Instance.PlayAudio(1);
     }
 
     //------------------------------------------------------------------

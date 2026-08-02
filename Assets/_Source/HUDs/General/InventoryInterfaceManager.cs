@@ -11,7 +11,6 @@ public class InventoryInterfaceManager : MonoBehaviour
     [SerializeField] private GameObject _inventoryInterface;
     [SerializeField] private Transform _itemSlotPool;
     [SerializeField] private GameObject _selectionSquare;
-    [SerializeField] private Button _useItemButton;
     [SerializeField] private Button _dropItemButton;
 
     [Header("Selected item interface")]
@@ -75,7 +74,6 @@ public class InventoryInterfaceManager : MonoBehaviour
             _selectedItemName.text = _playerInventory.Items[index].Item.ItemName;
             _selectedItemDescription.text = _playerInventory.Items[index].Item.ItemDescription;
 
-            _useItemButton.interactable = true;
             _dropItemButton.interactable = true;
         }
         else
@@ -96,7 +94,6 @@ public class InventoryInterfaceManager : MonoBehaviour
         _selectedItemName.text = "";
         _selectedItemDescription.text = "";
 
-        _useItemButton.interactable = false;
         _dropItemButton.interactable = false;
     }
 

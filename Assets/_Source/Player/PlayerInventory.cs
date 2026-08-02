@@ -125,6 +125,8 @@ public class PlayerInventory : MonoBehaviour
         {
             _interfaceManager.OpenInventory();
             _playerInput.SwitchCurrentActionMap("UI");
+
+            AudioManager.Instance.PlayAudio(0);
         } 
     }
 
