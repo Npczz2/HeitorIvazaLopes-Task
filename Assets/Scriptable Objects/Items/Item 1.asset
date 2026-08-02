@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Item 1
   m_EditorClassIdentifier: Assembly-CSharp::ItemScriptableObject
   ItemID: 0
-  ItemName: Item 1
-  ItemDescription: This is a default description.
-  ItemSprite: {fileID: 21300000, guid: 14535b5848c32944ca1061225b3fe6aa, type: 3}
-  ItemPrice: 100
+  ItemName: Mysterious Book
+  ItemDescription: Only the elderly from the village can understand the language
+    in this book.
+  ItemSprite: {fileID: 21300000, guid: 6615aac799632e6448a37591057228c8, type: 3}
+  ItemPrice: 75

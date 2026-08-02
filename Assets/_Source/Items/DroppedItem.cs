@@ -7,12 +7,12 @@ public class DroppedItem : MonoBehaviour, IInteractable
 
     void Awake()
     {
-        _playerInventory = FindFirstObjectByType<PlayerInventory>(); //Fix?
+        _playerInventory = FindFirstObjectByType<PlayerInventory>();
     }
 
     public void Interact()
     {
         _playerInventory.AddItem(ReferenceItem);
-        Destroy(gameObject); //Replace with collect item logic
+        Destroy(gameObject);
     }
 }

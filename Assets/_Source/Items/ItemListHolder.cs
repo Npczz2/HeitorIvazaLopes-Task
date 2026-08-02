@@ -9,4 +9,10 @@ public class ItemListHolder : MonoBehaviour
     {
         return _itemList[index];
     }
+
+    public ItemScriptableObject GetRandomItem()
+    {
+        int r = Random.Range(0, _itemList.Count);
+        return _itemList[r];
+    }
 }

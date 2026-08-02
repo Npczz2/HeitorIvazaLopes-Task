@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogScriptableObject
   DialogID: 0
   DialogLines:
-  - CharacterName: Walter
-    Line: Ah... Are you sure you are ready?
-  - CharacterName: Walter
-    Line: The dungeons... they are not for everybody.
+  - CharacterName: Radagast
+    Line: My child... help us.
+  - CharacterName: Radagast
+    Line: The ghosts keep stealing our belongings.
+  - CharacterName: Radagast
+    Line: Go to the dungeons and get our things back.
+  - CharacterName: Radagast
+    Line: But... Be careful, okay? *cough*
